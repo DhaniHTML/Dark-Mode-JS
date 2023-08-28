@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet" />
+    <title>JS LOGIC</title>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <div class="navbar">
+            <a href="/" id="home">HOME</a>
+            <a onClick="darkMode()" id="mode">Dark Mode</a>
+            <a onClick="merahMode()" id="angry">Angry Mode</a>
+        </div>
+        </nav>
+        <h1>5x Dark Mode</h1>
+        <p id="info" class="pengumuman"></p>
+    </div>
+<!-- initializing function script -->
+<script>
+    let info = document.getElementById("info")
+    let body = document.body;
+    let mode = document.getElementById('mode')
+    let home = document.getElementById("home")
+    let angry = document.getElementById("angry")
+    const darkLimit = 5;
+    let darkCounter = 0;
+    
+    function darkMode() {
+        if (darkCounter == 5) {
+            info.textContent = `Dark Mode Kamu Sudah Habis`
+            mode.style.display = "none"
+            home.textContent = "RESTART"
+            console.log('Jatah anda Habis')
+           return;
+        }
+     darkCounter += 1
+        console.log("darkCounter di klik sebanyak" + " " + darkCounter)
+        info.textContent = `Darkmode dipakai ${darkCounter} kali`
+         body.classList.toggle("dark");
+         if (body.classList.contains("dark")) {
+            mode.textContent = "Light Mode"
+         }else {
+            mode.textContent = "Dark Mode"
+         }
+        }
+        function merahMode() {
+            body.classList.toggle("angry")
+         }
+    
+
+
+</script>
+</body>
+</html>
